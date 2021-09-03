@@ -3,7 +3,7 @@ import { Pie } from '@ant-design/charts';
 const DemoPie = () => {
     var data = [
         {
-            type: 'english something',
+            type: 'english somethin',
             value: 27,
         },
         {
