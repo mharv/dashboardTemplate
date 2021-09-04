@@ -1,60 +1,26 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Radio } from 'antd';
+import { Form, Input } from 'antd';
+
+
+const layout = {
+  labelCol: { span: 12 },
+  wrapperCol: { span: 12 },
+};
+
+const longLabel = {
+  whiteSpace: 'normal',
+  // height: 'auto'
+};
 
 const FormLayoutDemo = () => {
-  const [form] = Form.useForm();
-  const [formLayout, setFormLayout] = useState('vertical');
-
-  const onFormLayoutChange = ({ layout }) => {
-    setFormLayout(layout);
-  };
-
-  const formItemLayout =
-    formLayout === 'horizontal'
-      ? {
-          labelCol: {
-            span: 4,
-          },
-          wrapperCol: {
-            span: 14,
-          },
-        }
-      : null;
-  const buttonItemLayout =
-    formLayout === 'horizontal'
-      ? {
-          wrapperCol: {
-            span: 14,
-            offset: 4,
-          },
-        }
-      : null;
   return (
     <>
-      <Form
-        {...formItemLayout}
-        layout={formLayout}
-        form={form}
-        initialValues={{
-          layout: formLayout,
-        }}
-        onValuesChange={onFormLayoutChange}
-      >
-        <Form.Item label="Form Layout" name="layout">
-          <Radio.Group value={formLayout}>
-            <Radio.Button value="horizontal">Horizontal</Radio.Button>
-            <Radio.Button value="vertical">Vertical</Radio.Button>
-            <Radio.Button value="inline">Inline</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item label="Field A">
+      <Form {...layout} style={longLabel} >
+        <Form.Item  label="Field AField AField AField AField AField AField AField AField AField A" >
           <Input placeholder="input placeholder" />
         </Form.Item>
         <Form.Item label="Field B">
           <Input placeholder="input placeholder" />
-        </Form.Item>
-        <Form.Item {...buttonItemLayout}>
-          <Button type="primary">Submit</Button>
         </Form.Item>
       </Form>
     </>
