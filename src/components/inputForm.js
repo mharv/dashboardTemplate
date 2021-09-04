@@ -3,7 +3,7 @@ import { Form, Input, Button, Radio } from 'antd';
 
 const FormLayoutDemo = () => {
   const [form] = Form.useForm();
-  const [formLayout, setFormLayout] = useState('horizontal');
+  const [formLayout, setFormLayout] = useState('vertical');
 
   const onFormLayoutChange = ({ layout }) => {
     setFormLayout(layout);
