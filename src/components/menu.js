@@ -17,7 +17,7 @@ class MainMenu extends React.Component {
   render() {
     const { current } = this.state;
     return (
-      <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
+      <Menu theme="light" onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
         <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>

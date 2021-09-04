@@ -49,7 +49,7 @@ const App = () => (
       </Col>
     </Row>
     </Content>
-    <Footer> 
+    <Footer style={{ textAlign: 'center' }}> 
         test footer - 2021
     </Footer>
     {/* <Button type="primary" onClick={onCLickHandler}>Button</Button> */}
