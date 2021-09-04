@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Space, Row, Col, Divider, Layout } from 'antd';
 import './App.css';
-import Page from './components/chart';
 import MainMenu from './components/menu';
 import DemoWaterfall from './components/waterfall';
 import DemoPie from './components/pie';
 import FormLayoutDemo from './components/inputForm';
+import { SettingOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer } = Layout;
 
@@ -16,9 +16,10 @@ const onCLickHandler = () => {
 const App = () => (
   <div className="App">
     <Layout>
-      <MainMenu></MainMenu>
-      
-      <Content>
+      <Header theme={"light"} style={{ position: 'fixed', zIndex: 1, width: '100%', background: '#fff' }}>
+        <MainMenu></MainMenu>
+      </Header>
+      <Content style={{ padding: '0 50px', marginTop: 64 }}>
     <Row justify="space-around" align="middle">
       <Col span={6}>
         <Row justify="space-around" align="middle">

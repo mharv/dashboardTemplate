@@ -4,10 +4,18 @@ import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/ico
 
 const { SubMenu } = Menu;
 
+const centerStyle = {
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center'
+};
+
 class MainMenu extends React.Component {
   state = {
     current: 'mail',
   };
+
+  
 
   handleClick = e => {
     console.log('click ', e);
@@ -17,7 +25,7 @@ class MainMenu extends React.Component {
   render() {
     const { current } = this.state;
     return (
-      <Menu theme="light" onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
+      <Menu style={centerStyle} theme="light" onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
         <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
