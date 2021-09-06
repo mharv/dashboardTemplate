@@ -1,16 +1,23 @@
 import React from 'react';
-import { Button, Space, Row, Col, Divider, Layout } from 'antd';
+import { Button, Space, Row, Col, Divider, Layout, Card } from 'antd';
 import './App.css';
 import MainMenu from './components/menu';
 import DemoWaterfall from './components/waterfall';
 import DemoPie from './components/pie';
 import InputTabs from './components/tabs';
+import TotalsTable from './components/TotalsTable';
 
 const { Header, Content, Footer } = Layout;
 
 const onCLickHandler = () => {
   console.log("test")
 }
+
+const centerStyle = {
+  // position: 'relative',
+  display: 'flex',
+  justifyContent: 'center'
+};
 
 const App = () => (
   <div className="App">
@@ -21,10 +28,18 @@ const App = () => (
       <Content style={{ padding: '0 50px', marginTop: 80 }}>
         <Row>
           <Col span={8}>
-            <Row justify="space-around" align="middle">
-              <Col>
+            <Row justify="space-around" align="top">
+              <Col flex='auto'>
                 <InputTabs></InputTabs>
               </Col>
+            </Row>
+            <Row justify="space-between" align="bottom">
+            <Col flex='auto'>
+            {/* <Card style={centerStyle}> */}
+              <TotalsTable></TotalsTable>
+              {/* </Card>     */}
+              </Col>
+            
             </Row>
           </Col>
           <Col span={16}>
@@ -49,9 +64,9 @@ const App = () => (
           </Col>
         </Row>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
+      {/* <Footer style={{ textAlign: 'center' }}>
         test footer - 2021
-      </Footer>
+      </Footer> */}
       {/* <Button type="primary" onClick={onCLickHandler}>Button</Button> */}
     </Layout>
   </div>
