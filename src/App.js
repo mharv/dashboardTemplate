@@ -3,7 +3,8 @@ import { Button, Space, Row, Col, Divider, Layout, Card } from 'antd';
 import './App.css';
 import MainMenu from './components/menu';
 import DemoWaterfall from './components/waterfall';
-import DemoPie from './components/pie';
+import EmbodiedCarbonPie from './components/EmbodiedCarbonPie';
+import EnergyCarbonPie from './components/EnergyCarbonPie';
 import InputTabs from './components/tabs';
 import TotalsTable from './components/TotalsTable';
 
@@ -55,10 +56,10 @@ const App = () => (
             </Row>
             <Row>
               <Col offset={1} span={10}>
-                <DemoPie></DemoPie>
+                <EmbodiedCarbonPie></EmbodiedCarbonPie>
               </Col>
               <Col offset={2} span={10}>
-                <DemoPie></DemoPie>
+                <EnergyCarbonPie></EnergyCarbonPie>
               </Col>
             </Row>
           </Col>

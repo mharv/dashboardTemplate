@@ -1,9 +1,9 @@
 import React from 'react';
 import { Pie } from '@ant-design/charts';
-const DemoPie = () => {
+const EnergyCarbonPie = () => {
     var data = [
         {
-            type: 'english somethin',
+            type: '分类一',
             value: 27,
         },
         {
@@ -31,21 +31,15 @@ const DemoPie = () => {
         appendPadding: 10,
         data: data,
         angleField: 'value',
-        
-    innerRadius: 0.6,
         colorField: 'type',
-        radius: 0.9,
+        radius: 0.8,
+        legend: false,
         label: {
             type: 'outer',
-            offset: '-30%',
-            content: null,
-            style: {
-                fontSize: 14,
-                textAlign: 'center',
-            },
+            content: '{name} {percentage}',
         },
-        interactions: [{ type: 'element-active' }],
+        interactions: [{ type: 'pie-legend-active' }, { type: 'element-active' }],
     };
-    return <Pie {...config}/>;
+    return <><h3>Energy carbon summary (B)</h3><Pie {...config}/></>;
 };
-export default DemoPie;
+export default EnergyCarbonPie;
