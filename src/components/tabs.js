@@ -3,19 +3,16 @@ import ProjectForm from './ProjectForm';
 import EmbodiedCarbonForm from './EmbodiedCarbonForm';
 import EnergyCarbonForm from './EnergyCarbonForm';
 import OffsetsForm from './OffsetsForm';
-import { Tabs, Radio } from 'antd';
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
 class InputTabs extends React.Component {
-  state = { size: 'small' };
-
 
   render() {
-    const { size } = this.state;
     return (
-      <div>
-        <Tabs tabPosition='top' defaultActiveKey="1" type="card" size={size} centered="true">
+      <>
+        <Tabs tabPosition='top' defaultActiveKey="1" type="card" size='small' centered="true">
           <TabPane tab="Project specifics" key="1">
             <ProjectForm></ProjectForm>
           </TabPane>
@@ -29,7 +26,7 @@ class InputTabs extends React.Component {
             <OffsetsForm></OffsetsForm>
           </TabPane>
         </Tabs>
-      </div>
+      </>
     );
   }
 }
