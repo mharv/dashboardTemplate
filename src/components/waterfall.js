@@ -75,7 +75,7 @@ const DemoWaterfall = () => {
         },
         labelMode: 'difference',
         label: {
-            style: { fontSize: 8 },
+            style: { fontSize: 9 },
             position: "top",
             autoHide: false,
             formatter: setPrecision,
