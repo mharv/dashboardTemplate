@@ -31,15 +31,14 @@ const DemoPie = () => {
         appendPadding: 10,
         data: data,
         angleField: 'value',
+        
+    innerRadius: 0.6,
         colorField: 'type',
         radius: 0.9,
         label: {
-            type: 'inner',
+            type: 'outer',
             offset: '-30%',
-            content: function content(_ref) {
-                var percent = _ref.percent;
-                return ''.concat((percent * 100).toFixed(0), '%');
-            },
+            content: null,
             style: {
                 fontSize: 14,
                 textAlign: 'center',
