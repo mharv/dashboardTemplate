@@ -3,67 +3,85 @@ import { Waterfall } from '@ant-design/charts';
 const DemoWaterfall = () => {
     var data = [
         {
-            quarter: '第一季度',
-            value: 6200000,
+            type: 'Energy demand in operation',
+            value: 4140,
         },
         {
-            quarter: '第二季度',
-            value: -2600000,
+            type: 'On-site renewables',
+            value: -414,
         },
         {
-            quarter: '第三季度',
-            value: 4100000,
+            type: 'Green power',
+            value: -3726,
         },
         {
-            quarter: '第四季度',
-            value: 3700000,
+            type: 'Embodied Carbon',
+            value: 1333.2,
+        },
+        {
+            type: 'Offsets',
+            value: -0.05,
         },
     ];
     var formatter = function formatter(v) {
-        return ''.concat(v / 10000000, ' 亿');
+        return ''.concat(v, ' KgCO2/m2');
     };
-    var annotations = [];
-    data.reduce(function (v, d) {
-        annotations.push({
-            type: 'text',
-            position: function position() {
-                var y = v + d.value / 2;
-                return [d.quarter, y];
-            },
-            content: formatter(d.value),
-            style: {
-                fontSize: 14,
-                stroke: '#666',
-                fill: '#fff',
-                lineWidth: 1,
-                textAlign: 'center',
-                verticalAlign: 'middle',
-            },
-        });
-        return v + d.value;
-    }, 0);
+
+    var setPrecision = function setPrecision(v) {
+        // return v.toPrecision(3)
+        // console.log(v)
+        return ''.concat(v.value, ' KgCO2/m2');
+    };
+    // var annotations = [];
+    // data.reduce(function (v, d) {
+    //     annotations.push({
+    //         type: 'text',
+    //         position: function position() {
+    //             var y = v + d.value / 2;
+    //             return [d.quarter, y];
+    //         },
+    //         content: formatter(d.value),
+    //         offsetY: '190',
+    //         rotate: 'true',
+    //         style: {
+    //             fontSize: 14,
+    //             stroke: '#666',
+    //             fill: '#fff',
+    //             lineWidth: 1,
+    //             textAlign: 'center',
+    //             verticalAlign: 'middle',
+    //         },
+    //     });
+    //     return v + d.value;
+    // }, 0);
     var config = {
         data: data,
         padding: 'auto',
         appendPadding: [20, 0, 0, 0],
-        xField: 'quarter',
+        xField: 'type',
         yField: 'value',
         meta: {
-            quarter: { alias: '月份' },
+            type: { alias: 'test' },
             value: {
-                alias: '销售量',
+                alias: 'total',
                 min: 0,
                 formatter: formatter,
+
             },
         },
         total: {
-            label: '总计',
-            style: { fill: '#96a6a6' },
+            label: 'Gap to zero',
+            style: { fill: '#ADD8E6' },
         },
-        labelMode: 'absolute',
-        label: { style: { fontSize: 12 } },
-        annotations: annotations,
+        labelMode: 'difference',
+        label: {
+            style: { fontSize: 8 },
+            position: "top",
+            autoHide: false,
+            formatter: setPrecision,
+        },
+
     };
-    return <Waterfall {...config}/>;
+    return <Waterfall {...config} />;
 };
 export default DemoWaterfall;
