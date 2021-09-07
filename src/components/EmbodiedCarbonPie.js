@@ -3,43 +3,43 @@ import { Pie } from '@ant-design/charts';
 const EmbodiedCarbonPie = () => {
     var data = [
         {
-            type: 'Sup structure - reduction',
+            name: 'Sup structure reduction',
             value: 27,
         },
         {
-            type: 'Int. finishes',
+            name: 'Int. finishes',
             value: 25,
         },
         {
-            type: 'Envelope',
+            name: 'Envelope',
             value: 18,
         },
         {
-            type: 'Services',
+            name: 'Services',
             value: 15,
         },
         {
-            type: 'Substructure',
+            name: 'Substructure',
             value: 10,
         },
         {
-            type: 'Super structure',
+            name: 'Super structure',
             value: 5,
         },
         {
-            type: 'Substructure - reduction',
+            name: 'Substructure reduction',
             value: 10,
         },
         {
-            type: 'Int. finishes - reduction',
+            name: 'Int. finishes reduction',
             value: 5,
         },
         {
-            type: 'Services - reduction',
+            name: 'Services reduction',
             value: 5,
         },
         {
-            type: 'Envelope - reduction',
+            name: 'Envelope reduction',
             value: 5,
         },
     ];
@@ -47,8 +47,23 @@ const EmbodiedCarbonPie = () => {
         appendPadding: 10,
         data: data,
         angleField: 'value',
-        colorField: 'type',
-        radius: 0.8,
+        colorField: 'name',
+        color: ({ name }) => {
+            let splitString = name.split(' ')
+            if(splitString[splitString.length-1] == 'reduction') {
+                let original = parseInt('3ac17e', 16);
+                let noise = Math.round(Math.random() * 50 + (Math.random() * 5));
+                let newColor = (original + noise).toString(16);
+                return '#'.concat(newColor);    
+            }
+            else {
+                let original = parseInt('f46d52', 16);
+                let noise = Math.round(Math.random() * 50 + (Math.random() * 5));
+                let newColor = (original + noise).toString(16);
+                return '#'.concat(newColor);
+            }
+        },
+        radius: 0.6,
         legend: false,
         label: {
             type: 'outer',
