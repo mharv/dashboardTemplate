@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider, Space } from 'antd';
 import DemoWaterfall from './waterfall';
 import EmbodiedCarbonPie from './EmbodiedCarbonPie';
 import EnergyCarbonPie from './EnergyCarbonPie';
@@ -12,6 +12,7 @@ const InputView = () => (
       
           <Row>
             <Col span={8}>
+            <Space direction="vertical" size={150}>
               <Row justify="space-around" align="top">
                 <Col flex='auto'>
                   <InputTabs></InputTabs>
@@ -27,6 +28,7 @@ const InputView = () => (
                   <TotalsTable></TotalsTable>
                 </Col>
               </Row>
+              </Space>
             </Col>
             <Col span={16}>
               <Row>
@@ -40,7 +42,7 @@ const InputView = () => (
                 </Col>
               </Row>
               <Row>
-                <Col offset={1} span={10}>
+                <Col offset={2} span={10}>
                   <EmbodiedCarbonPie></EmbodiedCarbonPie>
                 </Col>
                 <Col offset={2} span={10}>
