@@ -50,7 +50,7 @@ const EmbodiedCarbonPie = () => {
         colorField: 'name',
         color: ({ name }) => {
             let splitString = name.split(' ')
-            if(splitString[splitString.length-1] == 'reduction') {
+            if(splitString[splitString.length-1] === 'reduction') {
                 let original = parseInt('3ac17e', 16);
                 let noise = Math.round(Math.random() * 50 + (Math.random() * 5));
                 let newColor = (original + noise).toString(16);

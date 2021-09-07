@@ -1,22 +1,11 @@
 import React from 'react';
-import { Button, Space, Row, Col, Divider, Layout, Card } from 'antd';
+import { Row, Col, Divider } from 'antd';
 import DemoWaterfall from './waterfall';
 import EmbodiedCarbonPie from './EmbodiedCarbonPie';
 import EnergyCarbonPie from './EnergyCarbonPie';
 import InputTabs from './tabs';
 import TotalsTable from './TotalsTable';
 
-const { Header, Content, Footer } = Layout;
-
-const onCLickHandler = () => {
-    console.log("test")
-  }
-  
-  const centerStyle = {
-    // position: 'relative',
-    display: 'flex',
-    justifyContent: 'center'
-  };
 
 const InputView = () => (
     <>
