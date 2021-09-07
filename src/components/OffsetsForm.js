@@ -1,49 +1,50 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Input, Row, Col, Typography, Space, Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
-
-const layout = {
-  labelCol: { span: 18 },
-  wrapperCol: { span: 6 },
-};
-
-const longLabel = {
-  whiteSpace: 'normal',
-  // height: 'auto'
-};
+const { Text } = Typography;
 
 const OffsetsForm = () => {
   return (
     <>
-      <Form {...layout} style={longLabel} size="small" labelAlign="left">
-        <Form.Item  label="How much of the remaining carbon footprint will be offset" tooltip="% of the total carbon after renewables and green power" >
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="What is the reference cost of carbon offsets in $/tonne" tooltip="If not known, type 50">
-          <Input placeholder="$/tonne" />
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-      </Form>
+    <Space direction="vertical">
+      <Row>
+        <Col span={18}>
+          <Space style={{ width: '100%', justifyContent: 'left' }}>
+            <Text>
+              How much of the remaining carbon footprint will be offset
+            </Text>
+            <Tooltip title="% of the total carbon after renewables and green power">
+              <QuestionCircleOutlined />
+            </Tooltip>
+          </Space>
+        </Col>
+        <Col span={6}>
+          <Text>
+            <Input size="small" placeholder="small size" />
+          </Text>
+        </Col>
+      </Row>
+
+      <Row >
+        <Col span={18}>
+          <Space style={{ width: '100%', justifyContent: 'left' }}>
+            <Text>
+            What is the reference cost of carbon offsets in $/tonne
+            </Text>
+            <Tooltip title="If not known, type 50">
+              <QuestionCircleOutlined />
+            </Tooltip>
+          </Space>
+        </Col>
+        <Col span={6}>
+          <Text>
+            <Input size="small" placeholder="small size" />
+          </Text>
+        </Col>
+
+      </Row>
+      </Space>
     </>
   );
 };

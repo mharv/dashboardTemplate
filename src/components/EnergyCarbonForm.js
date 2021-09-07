@@ -1,50 +1,140 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Input, Row, Col, Typography, Space, Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
-
-const layout = {
-  labelCol: { span: 18 },
-  wrapperCol: { span: 6 },
-};
-
-const longLabel = {
-  whiteSpace: 'normal',
-  // height: 'auto'
-};
+const { Text } = Typography;
 
 const EnergyCarbonForm = () => {
   return (
     <>
-      <Form {...layout} style={longLabel} size="small" labelAlign="left">
-        <Form.Item  label="Embodied carbon reduction in operation (B)" >
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="End of Life embodied carbon reduction (C)">
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="Heating, Ventilation and Air Conditioning (B)">
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="Lighting (B)" tooltip="For Base Building this include only common areas">
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="Tenant equipment (B)" tooltip="type 0 for BaseBuilding">
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="Any other energy consumption (B)" >
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="How much green power will be purchased" tooltip="% of the total energy consumption from grid after on site renewables, the % should exclude the gas component" >
-          <Input placeholder="percentage" />
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        <Form.Item label="">
-          {/* <Input placeholder="percentage" /> */}
-        </Form.Item>
-        
-      </Form>
+    <Space direction="vertical">
+      <Row>
+        <Col span={18}>
+          <Space style={{ width: '100%', justifyContent: 'left' }}>
+            <Text>
+            Embodied carbon reduction in operation (B)
+            </Text>
+            {/* <Tooltip title="% of the total carbon after renewables and green power">
+              <QuestionCircleOutlined />
+            </Tooltip> */}
+          </Space>
+        </Col>
+        <Col span={6}>
+          <Text>
+            <Input size="small" placeholder="percentage" />
+          </Text>
+        </Col>
+      </Row>
+
+      <Row >
+        <Col span={18}>
+          <Space style={{ width: '100%', justifyContent: 'left' }}>
+            <Text>
+            End of Life embodied carbon reduction (C)
+            </Text>
+            {/* <Tooltip title="If not known, type 50">
+              <QuestionCircleOutlined />
+            </Tooltip> */}
+          </Space>
+        </Col>
+        <Col span={6}>
+          <Text>
+            <Input size="small" placeholder="percentage" />
+          </Text>
+        </Col>
+      </Row>
+
+<Row >
+  <Col span={18}>
+    <Space style={{ width: '100%', justifyContent: 'left' }}>
+      <Text>
+      Heating, Ventilation and Air Conditioning (B)
+      </Text>
+      <Tooltip title="If not known, type 50">
+        <QuestionCircleOutlined />
+      </Tooltip>
+    </Space>
+  </Col>
+  <Col span={6}>
+    <Text>
+      <Input size="small" placeholder="percentage" />
+    </Text>
+  </Col>
+</Row>
+
+<Row >
+  <Col span={18}>
+    <Space style={{ width: '100%', justifyContent: 'left' }}>
+      <Text>
+      Lighting (B)
+      </Text>
+      <Tooltip title="For Base Building this include only common areas">
+        <QuestionCircleOutlined />
+      </Tooltip>
+    </Space>
+  </Col>
+  <Col span={6}>
+    <Text>
+      <Input size="small" placeholder="percentage" />
+    </Text>
+  </Col>
+</Row>
+
+<Row >
+  <Col span={18}>
+    <Space style={{ width: '100%', justifyContent: 'left' }}>
+      <Text>
+      Tenant equipment (B)
+      </Text>
+      <Tooltip title="type 0 for BaseBuilding">
+        <QuestionCircleOutlined />
+      </Tooltip>
+    </Space>
+  </Col>
+  <Col span={6}>
+    <Text>
+      <Input size="small" placeholder="percentage" />
+    </Text>
+  </Col>
+</Row>
+
+<Row >
+  <Col span={18}>
+    <Space style={{ width: '100%', justifyContent: 'left' }}>
+      <Text>
+      Any other energy consumption (B)
+      </Text>
+      {/* <Tooltip title="type 0 for BaseBuilding">
+        <QuestionCircleOutlined />
+      </Tooltip> */}
+    </Space>
+  </Col>
+  <Col span={6}>
+    <Text>
+      <Input size="small" placeholder="percentage" />
+    </Text>
+  </Col>
+</Row>
+
+<Row >
+  <Col span={18}>
+    <Space style={{ width: '100%', justifyContent: 'left' }}>
+      <Text>
+      How much green power will be purchased
+      </Text>
+      <Tooltip title="% of the total energy consumption from grid after on site renewables, the % should exclude the gas component">
+        <QuestionCircleOutlined />
+      </Tooltip>
+    </Space>
+  </Col>
+  <Col span={6}>
+    <Text>
+      <Input size="small" placeholder="percentage" />
+    </Text>
+  </Col>
+</Row>
+
+      </Space>
     </>
   );
 };

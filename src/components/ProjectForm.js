@@ -1,49 +1,175 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Input, Row, Col, Typography, Space, Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
-
-const layout = {
-  labelCol: { span: 18 },
-  wrapperCol: { span: 6 },
-};
-
-const longLabel = {
-  whiteSpace: 'normal',
-  // height: 'auto'
-};
+const { Text } = Typography;
 
 const ProjectForm = () => {
   return (
     <>
-      <Form {...layout} style={longLabel} size="small" labelAlign="left">
-        <Form.Item  label="Job Number (27346700 format)" >
-          <Input placeholder="e.g. 12345600" />
-        </Form.Item>
-        <Form.Item label="Project name">
-          <Input placeholder="Project A" />
-        </Form.Item>
-        <Form.Item label="Who is the sustainability champion for the project">
-          <Input placeholder="Arup Staff" />
-        </Form.Item>
-        <Form.Item label="What is the most relevant building type from the list below">
-          <Input placeholder="dropdown?" />
-        </Form.Item>
-        <Form.Item label="What is the most relevant sector from the list below">
-          <Input placeholder="dropdown?" />
-        </Form.Item>
-        <Form.Item  label="Where is the project located" >
-          <Input placeholder="e.g. Sydney, Australia" />
-        </Form.Item>
-        <Form.Item label="What is the project total gross floor area in m2">
-          <Input placeholder="e.g. 10000" />
-        </Form.Item>
-        <Form.Item label="Select the reference Business As Usual baseline" tooltip="Please contact us if a new BAU is needed">
-          <Input placeholder="e.g. BAU_01" />
-        </Form.Item>
-        <Form.Item label="What is the expected service life for the building structure in years">
-          <Input placeholder="e.g. 60" />
-        </Form.Item>
-      </Form>
+      <Space direction="vertical">
+        <Row>
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                Job Number (27346700 format)
+              </Text>
+              {/* <Tooltip visible={false} title="Job Number (27346700 format)">
+              <QuestionCircleOutlined />
+            </Tooltip> */}
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="e.g. 12345600" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                Project name
+              </Text>
+              {/* <Tooltip title="If not known, type 50">
+              <QuestionCircleOutlined />
+            </Tooltip> */}
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="Project A" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                Who is the sustainability champion for the project
+              </Text>
+              {/* <Tooltip title="If not known, type 50">
+              <QuestionCircleOutlined />
+            </Tooltip> */}
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="Arup Staff" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                What is the most relevant building type from the list below
+              </Text>
+              {/* <Tooltip title="If not known, type 50">
+              <QuestionCircleOutlined />
+            </Tooltip> */}
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="dropdown?" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                What is the most relevant sector from the list below
+              </Text>
+              {/* <Tooltip title="">
+              <QuestionCircleOutlined />
+            </Tooltip> */}
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="dropdown?" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                Where is the project located
+              </Text>
+              <Tooltip title="e.g. Sydney, Australia">
+                <QuestionCircleOutlined />
+              </Tooltip>
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="dropdown?" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                What is the project total gross floor area in m2
+              </Text>
+              <Tooltip title="e.g. 10000">
+                <QuestionCircleOutlined />
+              </Tooltip>
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="dropdown?" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                Select the reference Business As Usual baseline
+              </Text>
+              <Tooltip title="Please contact us if a new BAU is needed">
+                <QuestionCircleOutlined />
+              </Tooltip>
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="e.g. BAU_01" />
+            </Text>
+          </Col>
+        </Row>
+
+        <Row >
+          <Col span={18}>
+            <Space style={{ width: '100%', justifyContent: 'left' }}>
+              <Text>
+                What is the expected service life for the building structure in years
+              </Text>
+              {/* <Tooltip title="Please contact us if a new BAU is needed">
+                <QuestionCircleOutlined />
+              </Tooltip> */}
+            </Space>
+          </Col>
+          <Col span={6}>
+            <Text>
+              <Input size="small" placeholder="e.g. 60" />
+            </Text>
+          </Col>
+        </Row>
+      </Space>
     </>
   );
 };
