@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { MailOutlined, DotChartOutlined, SettingOutlined } from '@ant-design/icons';
+import { MailOutlined, DotChartOutlined, SettingOutlined, EditOutlined } from '@ant-design/icons';
+import { Link } from "react-router-dom"
 
 const { SubMenu } = Menu;
 
@@ -26,14 +27,28 @@ class MainMenu extends React.Component {
     const { current } = this.state;
     return (
       <Menu style={centerStyle} theme="light" onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
+        
         <Menu.Item key="home" icon={<MailOutlined />}>
-          Home
+          
+        <Link to="/">
+          Home 
+          </Link>
+        </Menu.Item> 
+        <Menu.Item key="input" icon={<EditOutlined />}>
+          
+        <Link to="/input">
+          Input
+        </Link>
         </Menu.Item>
         <Menu.Item key="compare" icon={<DotChartOutlined />}>
+        <Link to="/compare">
           Compare
+          </Link>
         </Menu.Item>
-        <Menu.Item key="admin" icon={<SettingOutlined />}>
+        <Menu.Item disabled={true} key="admin" icon={<SettingOutlined />}>
+        <Link to="/admin">
           Admin
+          </Link>
         </Menu.Item>
       </Menu>
     );
