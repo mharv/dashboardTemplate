@@ -82,6 +82,7 @@ const DemoWaterfall = () => {
         },
 
     };
+    // return <><h3>Carbon summary</h3><Waterfall {...config} /></>;
     return <Waterfall {...config} />;
 };
 export default DemoWaterfall;
