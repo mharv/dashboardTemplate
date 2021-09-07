@@ -1,75 +1,76 @@
-import React from 'react';
-import { Button, Space, Row, Col, Divider, Layout, Card } from 'antd';
+import React, { useState } from 'react';
+import { Button, Layout } from 'antd';
 import './App.css';
+import InputView from './components/InputView';
 import MainMenu from './components/menu';
-import DemoWaterfall from './components/waterfall';
-import EmbodiedCarbonPie from './components/EmbodiedCarbonPie';
-import EnergyCarbonPie from './components/EnergyCarbonPie';
-import InputTabs from './components/tabs';
-import TotalsTable from './components/TotalsTable';
+import {
+  BrowserRouter as Router,
+  Switch, Route
+} from "react-router-dom"
+import { bindActionCreators, createStore } from 'redux'
+
+const appState = {
+  value: "",
+  numberTest: 0
+}
+
+function counterReducer(state = appState, action) {
+  switch (action.type) {
+    case 'counter/incremented':
+      if (state.value == "testpayload") {
+        action.payload = "huh";
+      }
+      return { 
+        ...state,
+        value: action.payload,
+       }
+    case 'counter/decremented':
+      state.value.concat("test")
+      return state
+    default:
+      return state
+  }
+}
 
 const { Header, Content, Footer } = Layout;
 
-const onCLickHandler = () => {
-  console.log("test")
+let store = createStore(counterReducer);
+
+store.subscribe(() => console.log(store.getState()))
+
+const handler = (val) => {
+  store.dispatch({ type: 'counter/incremented',
+                  payload: val })
 }
 
-const centerStyle = {
-  // position: 'relative',
-  display: 'flex',
-  justifyContent: 'center'
-};
+const val = store.getState();
 
 const App = () => (
+  
   <div className="App">
+    <Router>
     <Layout>
       <Header theme={"light"} style={{ position: 'fixed', zIndex: 1, width: '100%', background: '#fff' }}>
-        <MainMenu></MainMenu>
+        <MainMenu></MainMenu> 
       </Header>
       <Content style={{ padding: '0 50px', marginTop: 80 }}>
-        <Row>
-          <Col span={8}>
-            <Row justify="space-around" align="top">
-              <Col flex='auto'>
-                <InputTabs></InputTabs>
-              </Col>
-            </Row>
-            <Row justify="space-between" align="bottom">
-            <Col flex='auto'>
-            {/* <Card style={centerStyle}> */}
-              <TotalsTable></TotalsTable>
-              {/* </Card>     */}
-              </Col>
-            
-            </Row>
-          </Col>
-          <Col span={16}>
-            <Row>
-              <Col offset={1} span={22}>
-                <DemoWaterfall></DemoWaterfall>
-              </Col>
-            </Row>
-            <Row>
-              <Col offset={1} span={22}>
-                <Divider />
-              </Col>
-            </Row>
-            <Row>
-              <Col offset={1} span={10}>
-                <EmbodiedCarbonPie></EmbodiedCarbonPie>
-              </Col>
-              <Col offset={2} span={10}>
-                <EnergyCarbonPie></EnergyCarbonPie>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+        <Switch>
+        <Route path="/admin">
+            <div>Admin page </div>
+          </Route>
+          <Route path="/input">
+            <InputView></InputView>
+          </Route>
+          <Route path="/compare">
+          <div>Compare page</div>
+          </Route>
+          <Route path="/">
+            <div> {val.value} Home page <Button onClick={() => handler("testpayload")} type="primary">test state</Button></div>
+          </Route>
+        </Switch>
       </Content>
-      {/* <Footer style={{ textAlign: 'center' }}>
-        test footer - 2021
-      </Footer> */}
-      {/* <Button type="primary" onClick={onCLickHandler}>Button</Button> */}
     </Layout>
+    </Router>
   </div>
 );
 
