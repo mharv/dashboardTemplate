@@ -6,42 +6,50 @@ const data = [
     {
       name: 'BAU total embodied carbon',
       value: 24.7,
-      type: 'kg/m2/y'
+      unit: 'kg/m2/y',
+      key: 1
     },
     {
         name: 'Design proposal embodied carbon',
         value: 22.22,
-        type: 'kg/m2/y'
+        unit: 'kg/m2/y',
+        key: 2
       },
       {
         name: 'Embodied carbon reduction',
         value: 10,
-        type: '%'
+        unit: '%',
+        key: 3
       },
       {
         name: 'BAU total energy carbon (without Green Power)',
         value: 80,
-        type: 'kg/m2/y'
+        unit: 'kg/m2/y',
+        key: 4
       },
       {
           name: 'Design total energy carbon (without Green Power)',
           value: 62.1,
-          type: 'kg/m2/y'
+          unit: 'kg/m2/y',
+          key: 5
         },
         {
           name: 'Total carbon reduction (without Green Power)',
           value: 19.5,
-          type: '%'
+          unit: '%',
+          key: 6
         },
         {
           name: 'Total carbon reduction (with Green Power)',
           value: 78.8,
-          type: '%'
+          unit: '%',
+          key: 7
         },
         {
           name: 'Offset required to Net Zero',
           value: 3000000,
-          type: '$'
+          unit: '$',
+          key: 8
         },
 
         
@@ -64,8 +72,8 @@ const columns = [
     },
     {
       title: 'Unit',
-      dataIndex: 'type',
-      key: 'type',
+      dataIndex: 'unit',
+      key: 'unit',
     }
   ];
   
