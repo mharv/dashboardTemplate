@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Input, Row, Col, Typography, Space, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
+import { useSelector, useDispatch } from 'react-redux'
+import { set } from '../features/counter/counterSlice'
 const { Text } = Typography;
 
+
+const selectedText = state => state.input.value;
+
+
 const ProjectForm = () => {
+  const dispatch = useDispatch()
+  
+  const [text, setText] = useState(useSelector(selectedText))
+  
+  const handleChange = e => {
+    setText(e.target.value)
+    dispatch(set(e.target.value) )
+  }
+
   return (
     <>
       <Space direction="vertical">
@@ -21,7 +36,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="e.g. 12345600" />
+              <Input size="small" placeholder="e.g. 12345600" value={text} onChange={handleChange} />
             </Text>
           </Col>
         </Row>

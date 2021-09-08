@@ -9,14 +9,14 @@ import {
 } from "react-router-dom"
 
 import { useSelector, useDispatch } from 'react-redux'
-import { incrementByAmount } from './features/counter/counterSlice'
+import { set } from './features/counter/counterSlice'
 
 
 const { Header, Content } = Layout;
 
 const App = () => {
 
-  const count = useSelector(state => state.counter.value)
+  const count = useSelector(state => state.input.value)
   const dispatch = useDispatch()
   return (
     <div className="App">
@@ -38,7 +38,7 @@ const App = () => {
               </Route>
               <Route path="/">
                 <div>
-                  {count} Home page <Button onClick={() => dispatch(incrementByAmount(8))} type="primary"> testing redux </Button>
+                  {count} Home page <Button onClick={() => dispatch(set("cleared"))} type="primary"> testing redux </Button>
                 </div>
               </Route>
             </Switch>
