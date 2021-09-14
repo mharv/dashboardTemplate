@@ -1,41 +1,55 @@
 import React from 'react';
 import { Pie } from '@ant-design/charts';
+import { useSelector, useDispatch } from 'react-redux'
+
 const EnergyCarbonPie = () => {
+    // reductions
+    const DesignOpHvacReduction = useSelector(state => state.DesignOpHvacReduction);
+    const DesignOpLightingReduction = useSelector(state => state.DesignOpLightingReduction);
+    const DesignOpEquTenReduction = useSelector(state => state.DesignOpEquTenReduction);
+    const DesignOpOthersReduction = useSelector(state => state.DesignOpOthersReduction);
+    
+    // embodied carbon
+    const DesignOpHvac = useSelector(state => state.DesignOpHvac);
+    const DesignOpLighting = useSelector(state => state.DesignOpLighting);
+    const DesignOpEquTen = useSelector(state => state.DesignOpEquTen);
+    const DesignOpOthers = useSelector(state => state.DesignOpOthers);
+
     var data = [
         {
-            name: 'Op. others',
-            value: 27,
-            type: 'increase'
-        },
-        {
-            name: 'Op. Equ. Ten. Lighting',
-            value: 25,
-            type: 'increase'
-        },
-        {
-            name: 'HVAC',
-            value: 18,
-            type: 'increase'
-        },
-        {
             name: 'HVAC reduction',
-            value: 15,
+            value: DesignOpHvacReduction,
             type: 'reduction'
         },
         {
             name: 'Others reduction',
-            value: 10,
+            value: DesignOpOthersReduction,
             type: 'reduction'
         },
         {
             name: 'Equ. Ten. reduction',
-            value: 5,
+            value: DesignOpEquTenReduction,
             type: 'reduction'
         },
         {
             name: 'Lighting reduction',
-            value: 10,
+            value: DesignOpLightingReduction,
             type: 'reduction'
+        },
+        {
+            name: 'Op. others',
+            value: DesignOpOthers,
+            type: 'increase'
+        },
+        {
+            name: 'Op. Equ. Ten. Lighting',
+            value: DesignOpLighting + DesignOpEquTen,
+            type: 'increase'
+        },
+        {
+            name: 'HVAC',
+            value: DesignOpHvac,
+            type: 'increase'
         },
     ];
     var config = {

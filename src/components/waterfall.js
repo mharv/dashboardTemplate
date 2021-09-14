@@ -1,26 +1,36 @@
 import React from 'react';
 import { Waterfall } from '@ant-design/charts';
+import { useSelector, useDispatch } from 'react-redux'
+
+
 const DemoWaterfall = () => {
+    
+  const SummaryEnergyDemandInOperation = useSelector(state => state.SummaryEnergyDemandInOperation);
+  const SummaryOnSiteRenewables = useSelector(state => state.SummaryOnSiteRenewables);
+  const SummaryGreenPower = useSelector(state => state.SummaryGreenPower);
+  const SummaryEmbodiedCarbon = useSelector(state => state.SummaryEmbodiedCarbon);
+  const SummaryOffsets = useSelector(state => state.SummaryOffsets);
+
     var data = [
         {
             type: 'Energy demand in operation',
-            value: 4140,
+            value: SummaryEnergyDemandInOperation,
         },
         {
             type: 'On-site renewables',
-            value: -414,
+            value: SummaryOnSiteRenewables,
         },
         {
             type: 'Green power',
-            value: -3726,
+            value: SummaryGreenPower,
         },
         {
             type: 'Embodied Carbon',
-            value: 1333.2,
+            value: SummaryEmbodiedCarbon,
         },
         {
             type: 'Offsets',
-            value: -0.05,
+            value: SummaryOffsets,
         },
     ];
     var formatter = function formatter(v) {
@@ -28,9 +38,7 @@ const DemoWaterfall = () => {
     };
 
     var setPrecision = function setPrecision(v) {
-        // return v.toPrecision(3)
-        // console.log(v)
-        return ''.concat(v.value, ' KgCO2/m2');
+        return ''.concat(v.value.toFixed(1), ' KgCO2/m2');
     };
     // var annotations = [];
     // data.reduce(function (v, d) {

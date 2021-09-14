@@ -1,46 +1,63 @@
 import React from 'react';
 import { Pie } from '@ant-design/charts';
+import { useSelector, useDispatch } from 'react-redux'
+
 const EmbodiedCarbonPie = () => {
+    // reductions
+    const DesignEmbSupStructureReduction = useSelector(state => state.DesignEmbSupStructureReduction);
+    const DesignEmbSubStructureReduction = useSelector(state => state.DesignEmbSubStructureReduction);
+    const DesignEmbServicesReduction = useSelector(state => state.DesignEmbServicesReduction);
+    const DesignEmbEnvelopeReduction = useSelector(state => state.DesignEmbEnvelopeReduction);
+    const DesignEmbIntFinishesReduction = useSelector(state => state.DesignEmbIntFinishesReduction);
+    
+    // embodied carbon
+
+    const DesignEmbSupStructure = useSelector(state => state.DesignEmbSupStructure);
+    const DesignEmbSubStructure = useSelector(state => state.DesignEmbSubStructure);
+    const DesignEmbServices = useSelector(state => state.DesignEmbServices);
+    const DesignEmbEnvelope = useSelector(state => state.DesignEmbEnvelope);
+    const DesignEmbIntFinishes = useSelector(state => state.DesignEmbIntFinishes);
+
     var data = [
         {
             name: 'Sup structure reduction',
-            value: 27,
-        },
-        {
-            name: 'Int. finishes',
-            value: 25,
-        },
-        {
-            name: 'Envelope',
-            value: 18,
-        },
-        {
-            name: 'Services',
-            value: 15,
-        },
-        {
-            name: 'Substructure',
-            value: 10,
-        },
-        {
-            name: 'Super structure',
-            value: 5,
+            value: DesignEmbSupStructureReduction,
         },
         {
             name: 'Substructure reduction',
-            value: 10,
+            value: DesignEmbSubStructureReduction,
         },
         {
             name: 'Int. finishes reduction',
-            value: 5,
+            value: DesignEmbIntFinishesReduction,
         },
         {
             name: 'Services reduction',
-            value: 5,
+            value: DesignEmbServicesReduction,
         },
         {
             name: 'Envelope reduction',
-            value: 5,
+            value: DesignEmbEnvelopeReduction,
+        },
+        {
+            name: 'Int. finishes',
+            value: DesignEmbIntFinishes,
+        },
+        {
+            name: 'Envelope',
+            value: DesignEmbEnvelope,
+        },
+        {
+            name: 'Services',
+            value: DesignEmbServices,
+        },
+        {
+            name: 'Substructure',
+            value: DesignEmbSubStructure,
+        },
+        {
+            name: 'Super structure',
+            value: DesignEmbSupStructure,
         },
     ];
     var config = {
