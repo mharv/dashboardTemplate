@@ -32,10 +32,16 @@ class MainMenu extends React.Component {
           Home 
           </Link>
         </Menu.Item> 
-        <Menu.Item key="input" icon={<EditOutlined />}>
+        <Menu.Item key="NZCinput" icon={<EditOutlined />}>
           
         <Link to="/input">
-          Input
+          NZC Buildings
+        </Link>
+        </Menu.Item>
+        <Menu.Item key="KPIinput" icon={<EditOutlined />}>
+          
+        <Link to="/input">
+          KPIs
         </Link>
         </Menu.Item>
         <Menu.Item key="compare" icon={<DotChartOutlined />}>
