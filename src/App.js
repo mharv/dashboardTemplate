@@ -8,16 +8,10 @@ import {
   Switch, Route
 } from "react-router-dom"
 
-import { useSelector, useDispatch } from 'react-redux'
-import { set } from './features/counter/counterSlice'
-
-
 const { Header, Content } = Layout;
 
 const App = () => {
 
-  const count = useSelector(state => state.input.value)
-  const dispatch = useDispatch()
   return (
     <div className="App">
       <Router>
@@ -38,7 +32,7 @@ const App = () => {
               </Route>
               <Route path="/">
                 <div>
-                  {count} Home page <Button onClick={() => dispatch(set("cleared"))} type="primary"> testing redux </Button>
+                  Homepage
                 </div>
               </Route>
             </Switch>
