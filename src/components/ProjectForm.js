@@ -1,23 +1,33 @@
-import React, { useState } from 'react';
-import { Input, Row, Col, Typography, Space, Tooltip } from 'antd';
+import React from 'react';
+import { Input, InputNumber, Row, Col, Typography, Space, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-
 import { useSelector, useDispatch } from 'react-redux'
-import { set } from '../features/counter/counterSlice'
+
 const { Text } = Typography;
 
-
-const selectedText = state => state.input.value;
-
-
 const ProjectForm = () => {
-  const dispatch = useDispatch()
-  
-  const [text, setText] = useState(useSelector(selectedText))
-  
-  const handleChange = e => {
-    setText(e.target.value)
-    dispatch(set(e.target.value) )
+  // dispatch actions with this function
+  const dispatch = useDispatch();
+  // save current global state to local state to be used in component
+  const JobNumber = useSelector(state => state.JobNumber);
+  const ProjectName = useSelector(state => state.ProjectName);
+  const SustainabilityChampionEmail = useSelector(state => state.SustainabilityChampionEmail);
+  const ProjectLocation = useSelector(state => state.ProjectLocation);
+  const Sector = useSelector(state => state.Sector);
+  const BuildingType = useSelector(state => state.BuildingType);
+  const ProjectGFA = useSelector(state => state.ProjectGFA);
+  const ProjectBauBaseline = useSelector(state => state.ProjectBauBaseline);
+  const ServiceLifeBuildingStructureYears = useSelector(state => state.ServiceLifeBuildingStructureYears);
+
+
+  // handle changes depending on field type
+  const handleNumberChange = id => e => {
+    dispatch({type: 'update', key: [id], payload: e})
+    dispatch({type: 'recalculate' })
+  }
+  const handleStringChange = e => {
+    dispatch({type: 'update', key: e.target.getAttribute("id"), payload: e.target.value})
+    dispatch({type: 'recalculate' })
   }
 
   return (
@@ -35,9 +45,7 @@ const ProjectForm = () => {
             </Space>
           </Col>
           <Col span={6}>
-            <Text>
-              <Input size="small" placeholder="e.g. 12345600" value={text} onChange={handleChange} />
-            </Text>
+            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={JobNumber} id='JobNumber' onChange={handleNumberChange('JobNumber')} />  
           </Col>
         </Row>
 
@@ -54,7 +62,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="Project A" />
+              <Input size="small" placeholder="Project A"  value={ProjectName} id='ProjectName' onChange={handleStringChange} />
             </Text>
           </Col>
         </Row>
@@ -72,7 +80,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="Arup Staff" />
+            <Input size="small" placeholder="Project A"  value={SustainabilityChampionEmail} id='SustainabilityChampionEmail' onChange={handleStringChange} />
             </Text>
           </Col>
         </Row>
@@ -90,7 +98,8 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="dropdown?" />
+            <Input size="small" placeholder="data center"  value={BuildingType} id='BuildingType' onChange={handleStringChange} />
+            
             </Text>
           </Col>
         </Row>
@@ -108,7 +117,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="dropdown?" />
+            <Input size="small" placeholder="education"  value={Sector} id='Sector' onChange={handleStringChange} />
             </Text>
           </Col>
         </Row>
@@ -126,7 +135,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="dropdown?" />
+            <Input size="small" placeholder="Sydney, Aus"  value={ProjectLocation} id='ProjectLocation' onChange={handleStringChange} />
             </Text>
           </Col>
         </Row>
@@ -144,7 +153,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="dropdown?" />
+            <InputNumber style={{ width: '100%' }} size="small" placeholder="" value={ProjectGFA} id='ProjectGFA' onChange={handleNumberChange('ProjectGFA')} />  
             </Text>
           </Col>
         </Row>
@@ -162,7 +171,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="e.g. BAU_01" />
+            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. BAU_01" value={ProjectBauBaseline} id='ProjectBauBaseline' onChange={handleNumberChange('ProjectBauBaseline')} /> 
             </Text>
           </Col>
         </Row>
@@ -180,7 +189,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="e.g. 60" />
+            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 60" value={ServiceLifeBuildingStructureYears} id='ServiceLifeBuildingStructureYears' onChange={handleNumberChange('ServiceLifeBuildingStructureYears')} /> 
             </Text>
           </Col>
         </Row>

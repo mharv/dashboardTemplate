@@ -1,10 +1,24 @@
 import React from 'react';
-import { Input, Row, Col, Typography, Space, Tooltip } from 'antd';
+import { InputNumber, Row, Col, Typography, Space, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
+import { useSelector, useDispatch } from 'react-redux'
 
 const { Text } = Typography;
 
 const OffsetsForm = () => {
+  // dispatch actions with this function
+  const dispatch = useDispatch();
+  // save current global state to local state to be used in component
+  const ProjectOffsetTarget = useSelector(state => state.ProjectOffsetTarget);
+  const ProjectOffsetCost = useSelector(state => state.ProjectOffsetCost);
+
+
+  // handle changes depending on field type
+  const handleNumberChange = id => e => {
+    dispatch({type: 'update', key: [id], payload: e})
+    dispatch({type: 'recalculate' })
+  }
+
   return (
     <>
     <Space direction="vertical">
@@ -21,7 +35,7 @@ const OffsetsForm = () => {
         </Col>
         <Col span={6}>
           <Text>
-            <Input size="small" placeholder="small size" />
+          <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOffsetTarget} id='ProjectOffsetTarget' onChange={handleNumberChange('ProjectOffsetTarget')} />
           </Text>
         </Col>
       </Row>
@@ -39,7 +53,7 @@ const OffsetsForm = () => {
         </Col>
         <Col span={6}>
           <Text>
-            <Input size="small" placeholder="small size" />
+          <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOffsetCost} id='ProjectOffsetCost' onChange={handleNumberChange('ProjectOffsetCost')} />
           </Text>
         </Col>
 
