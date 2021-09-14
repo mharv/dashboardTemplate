@@ -10,7 +10,7 @@ const EnergyCarbonForm = () => {
   const dispatch = useDispatch();
   // save current global state to local state to be used in component
   const ProjectEmbInOp = useSelector(state => state.ProjectEmbInOp);
-  const ProjectEmbEoL = useSelector(state => state.ProjectEmbInOp);
+  const ProjectEmbEoL = useSelector(state => state.ProjectEmbEoL);
   const ProjectOpHvac = useSelector(state => state.ProjectOpHvac);
   const ProjectOpLighting = useSelector(state => state.ProjectOpLighting);
   const ProjectOpEquTen = useSelector(state => state.ProjectOpEquTen);
