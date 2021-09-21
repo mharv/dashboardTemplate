@@ -37,7 +37,7 @@ const EmbodiedCarbonForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbSupStructure} id='ProjectEmbSupStructure' onChange={handleNumberChange('ProjectEmbSupStructure')} />  
+            <InputNumber max={1} min={0} style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbSupStructure} id='ProjectEmbSupStructure' onChange={handleNumberChange('ProjectEmbSupStructure')} />  
             </Text>
           </Col>
         </Row>
@@ -55,7 +55,7 @@ const EmbodiedCarbonForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbSubStructure} id='ProjectEmbSubStructure' onChange={handleNumberChange('ProjectEmbSubStructure')} />
+            <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbSubStructure} id='ProjectEmbSubStructure' onChange={handleNumberChange('ProjectEmbSubStructure')} />
             </Text>
           </Col>
         </Row>
@@ -73,7 +73,7 @@ const EmbodiedCarbonForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbServices} id='ProjectEmbServices' onChange={handleNumberChange('ProjectEmbServices')} />  
+            <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbServices} id='ProjectEmbServices' onChange={handleNumberChange('ProjectEmbServices')} />  
             </Text>
           </Col>
         </Row>
@@ -91,7 +91,7 @@ const EmbodiedCarbonForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbEnvelope} id='ProjectEmbEnvelope' onChange={handleNumberChange('ProjectEmbEnvelope')} />  
+            <InputNumber  max={1} min={0} style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbEnvelope} id='ProjectEmbEnvelope' onChange={handleNumberChange('ProjectEmbEnvelope')} />  
             </Text>
           </Col>
         </Row>
@@ -109,7 +109,7 @@ const EmbodiedCarbonForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbIntFinishes} id='ProjectEmbIntFinishes' onChange={handleNumberChange('ProjectEmbIntFinishes')} />  
+            <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbIntFinishes} id='ProjectEmbIntFinishes' onChange={handleNumberChange('ProjectEmbIntFinishes')} />  
             </Text>
           </Col>
         </Row>

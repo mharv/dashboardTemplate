@@ -2,6 +2,7 @@ import React from 'react';
 import { Input, InputNumber, Row, Col, Typography, Space, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux'
+import SelectBauModal from './SelectBauModal';
 
 const { Text } = Typography;
 
@@ -45,7 +46,7 @@ const ProjectForm = () => {
             </Space>
           </Col>
           <Col span={6}>
-            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={JobNumber} id='JobNumber' onChange={handleNumberChange('JobNumber')} />  
+            <InputNumber disabled style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={JobNumber} id='JobNumber' onChange={handleNumberChange('JobNumber')} />  
           </Col>
         </Row>
 
@@ -62,7 +63,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-              <Input size="small" placeholder="Project A"  value={ProjectName} id='ProjectName' onChange={handleStringChange} />
+              <Input disabled size="small" placeholder="Project A"  value={ProjectName} id='ProjectName' onChange={handleStringChange} />
             </Text>
           </Col>
         </Row>
@@ -98,7 +99,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <Input size="small" placeholder="data center"  value={BuildingType} id='BuildingType' onChange={handleStringChange} />
+            <Input disabled size="small" placeholder="data center"  value={BuildingType} id='BuildingType' onChange={handleStringChange} />
             
             </Text>
           </Col>
@@ -117,7 +118,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <Input size="small" placeholder="education"  value={Sector} id='Sector' onChange={handleStringChange} />
+            <Input disabled size="small" placeholder="education"  value={Sector} id='Sector' onChange={handleStringChange} />
             </Text>
           </Col>
         </Row>
@@ -135,7 +136,7 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <Input size="small" placeholder="Sydney, Aus"  value={ProjectLocation} id='ProjectLocation' onChange={handleStringChange} />
+            <Input disabled size="small" placeholder="Sydney, Aus"  value={ProjectLocation} id='ProjectLocation' onChange={handleStringChange} />
             </Text>
           </Col>
         </Row>
@@ -171,7 +172,8 @@ const ProjectForm = () => {
           </Col>
           <Col span={6}>
             <Text>
-            <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. BAU_01" value={ProjectBauBaseline} id='ProjectBauBaseline' onChange={handleNumberChange('ProjectBauBaseline')} /> 
+              <SelectBauModal></SelectBauModal>
+            {/* <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. BAU_01" value={ProjectBauBaseline} id='ProjectBauBaseline' onChange={handleNumberChange('ProjectBauBaseline')} />  */}
             </Text>
           </Col>
         </Row>

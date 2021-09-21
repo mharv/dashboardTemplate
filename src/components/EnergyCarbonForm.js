@@ -41,7 +41,7 @@ const EnergyCarbonForm = () => {
         </Col>
         <Col span={6}>
           <Text>
-          <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbInOp} id='ProjectEmbInOp' onChange={handleNumberChange('ProjectEmbInOp')} />
+          <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbInOp} id='ProjectEmbInOp' onChange={handleNumberChange('ProjectEmbInOp')} />
           </Text>
         </Col>
       </Row>
@@ -59,7 +59,7 @@ const EnergyCarbonForm = () => {
         </Col>
         <Col span={6}>
           <Text>
-          <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbEoL} id='ProjectEmbEoL' onChange={handleNumberChange('ProjectEmbEoL')} />
+          <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectEmbEoL} id='ProjectEmbEoL' onChange={handleNumberChange('ProjectEmbEoL')} />
           </Text>
         </Col>
       </Row>
@@ -77,7 +77,7 @@ const EnergyCarbonForm = () => {
   </Col>
   <Col span={6}>
     <Text>
-    <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpHvac} id='ProjectOpHvac' onChange={handleNumberChange('ProjectOpHvac')} />
+    <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpHvac} id='ProjectOpHvac' onChange={handleNumberChange('ProjectOpHvac')} />
     </Text>
   </Col>
 </Row>
@@ -95,7 +95,7 @@ const EnergyCarbonForm = () => {
   </Col>
   <Col span={6}>
     <Text>
-    <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpLighting} id='ProjectOpLighting' onChange={handleNumberChange('ProjectOpLighting')} />
+    <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpLighting} id='ProjectOpLighting' onChange={handleNumberChange('ProjectOpLighting')} />
     </Text>
   </Col>
 </Row>
@@ -113,7 +113,7 @@ const EnergyCarbonForm = () => {
   </Col>
   <Col span={6}>
     <Text>
-    <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpEquTen} id='ProjectOpEquTen' onChange={handleNumberChange('ProjectOpEquTen')} />
+    <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpEquTen} id='ProjectOpEquTen' onChange={handleNumberChange('ProjectOpEquTen')} />
     </Text>
   </Col>
 </Row>
@@ -131,7 +131,7 @@ const EnergyCarbonForm = () => {
   </Col>
   <Col span={6}>
     <Text>
-    <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpOthers} id='ProjectOpOthers' onChange={handleNumberChange('ProjectOpOthers')} />
+    <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpOthers} id='ProjectOpOthers' onChange={handleNumberChange('ProjectOpOthers')} />
     </Text>
   </Col>
 </Row>
@@ -149,7 +149,7 @@ const EnergyCarbonForm = () => {
   </Col>
   <Col span={6}>
     <Text>
-    <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpRenewables} id='ProjectOpRenewables' onChange={handleNumberChange('ProjectOpRenewables')} />
+    <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpRenewables} id='ProjectOpRenewables' onChange={handleNumberChange('ProjectOpRenewables')} />
     </Text>
   </Col>
 </Row>
@@ -167,7 +167,7 @@ const EnergyCarbonForm = () => {
   </Col>
   <Col span={6}>
     <Text>
-    <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpGreenPower} id='ProjectOpGreenPower' onChange={handleNumberChange('ProjectOpGreenPower')} />
+    <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOpGreenPower} id='ProjectOpGreenPower' onChange={handleNumberChange('ProjectOpGreenPower')} />
     </Text>
   </Col>
 </Row>

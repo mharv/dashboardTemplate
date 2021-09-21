@@ -35,7 +35,7 @@ const OffsetsForm = () => {
         </Col>
         <Col span={6}>
           <Text>
-          <InputNumber style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOffsetTarget} id='ProjectOffsetTarget' onChange={handleNumberChange('ProjectOffsetTarget')} />
+          <InputNumber max={1} min={0}  style={{ width: '100%' }} size="small" placeholder="e.g. 12345600" value={ProjectOffsetTarget} id='ProjectOffsetTarget' onChange={handleNumberChange('ProjectOffsetTarget')} />
           </Text>
         </Col>
       </Row>
