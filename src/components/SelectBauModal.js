@@ -131,7 +131,7 @@ const SelectBauModal = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button style={{ width: '100%' }} onClick={showModal}>
         BAU selector
       </Button>
       <Modal width={1000} title="Select your BAU baseline" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
