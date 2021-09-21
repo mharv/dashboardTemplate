@@ -4,16 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
-import reducer from './app/reducer'
-import { createStore } from 'redux'
+import store from './app/store'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import { msalConfig } from "./authConfig";
 
-const store = createStore(reducer)
+
+const msalInstance = new PublicClientApplication(msalConfig);
+
 
 ReactDOM.render(
   <React.StrictMode>
+    <MsalProvider instance={msalInstance}>
     <Provider store={store}>
     <App />
     </Provider>
+    </MsalProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
