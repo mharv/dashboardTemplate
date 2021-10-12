@@ -22,6 +22,7 @@ const MainMenu = (props) => {
 
   
   // const token = props.token;
+  const token = 'otMjMu0sAGRDTuuu00lyZ/stG/Z2p14OtPOqPLq672sWfRGSb8Bhwg==';
 const url = 'https://sus-kpi-backend.azurewebsites.net';
 const urlComplete = url + '/projects?code=' + token;
 
