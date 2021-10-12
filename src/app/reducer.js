@@ -1,43 +1,54 @@
 const initialState = {
     // ProjectForm
     // not in db
-    ProjectName: "",
-    ProjectLocation: "",
-    BuildingType: "",
-    Sector: "",
+    ProjectTitle: "", //
+    ProjectLocation: "", //
+    BuildingType: "", //
+    Sector: "", //
 
     // in db
     // defaults based off Enricos spreadsheet
-    JobNumber: 0,
-    Stage: "",
-    SustainabilityChampionEmail: "",
-    ProjectGFA: 0,
+    JobNumber: "", //
+    Stage: "", //
+    SustainabilityChampionEmail: "", //
+    ProjectGFA: 0, //
 
     // harcoded for now
-    ProjectBauBaseline: "BAU_01",
-    ServiceLifeBuildingStructureYears: 60,
+    ProjectBauBaseline: "BAU_01", //
+    ServiceLifeBuildingStructureYears: 60, //
 
     // EmbodiedCarbonForm
-    ProjectEmbSupStructure: 0,
-    ProjectEmbSubStructure: 0,
-    ProjectEmbServices: 0,
-    ProjectEmbEnvelope: 0,
-    ProjectEmbIntFinishes: 0,
-    ProjectEmbInOp: 0,
-    ProjectEmbEoL: 0,
+    ProjectEmbSupStructure: 0, //
+    ProjectEmbSubStructure: 0, //
+    ProjectEmbServices: 0, //
+    ProjectEmbEnvelope: 0, //
+    ProjectEmbIntFinishes: 0, //
+    ProjectEmbInOp: 0, //
+    ProjectEmbEoL: 0, //
 
     // energy carbon form
-    ProjectOpHvac: 0,
-    ProjectOpLighting: 0,
-    ProjectOpEquTen: 0,
-    ProjectOpOthers: 0,
-
-    ProjectOpRenewables: 0,
-    ProjectOpGreenPower: 0,
+    ProjectOpHvac: 0, //
+    ProjectOpLighting: 0, //
+    ProjectOpEquTen: 0, //
+    ProjectOpOthers: 0, //
+    ProjectOpRenewables: 0, //
+    ProjectOpGreenPower: 0, //
 
     // offsets form    
-    ProjectOffsetTarget: 0,
-    ProjectOffsetCost: 50,
+    ProjectOffsetTarget: 0, //
+    ProjectOffsetCost: 50, //
+
+    
+    // KPI inputs
+    ProjectClimateChangeRiskReviewComplete: 0, //
+    MajorRisksNotMitigatedFor2050: 5, //
+    MajorRisksNotMitigatedFor2070: 5, //
+
+    ProjectTeamEngagement: 0, //
+    ProjectClientEngagementDecarbonisation: 0, //
+    ProjectClientEngagementResilience: 0, //
+    ProjectArupImpactCarbon: 0, //
+    ProjectArupImpactResilience: 0, //
     
     // BAU totals
     BauEmbTotal: 0,
@@ -90,29 +101,55 @@ const initialState = {
 
     // BAU benchmarks
     // hardcoded defaults for now
-    BauLifecycle: 60,
+    // BauLifecycle: 60,
 
-    BauEmbSupStructure: 7,
-    BauEmbSubStructure: 3,
-    BauEmbServices: 1,
-    BauEmbEnvelope: 1.3,
-    BauEmbIntFinishes: 1.9,
-    BauEmbInOp: 8.4,
-    BauEmbEoL: 2.1,
+    // BauEmbSupStructure: 7,
+    // BauEmbSubStructure: 3,
+    // BauEmbServices: 1,
+    // BauEmbEnvelope: 1.3,
+    // BauEmbIntFinishes: 1.9,
+    // BauEmbInOp: 8.4,
+    // BauEmbEoL: 2.1,
 
-    BauOpHvac: 50,
-    BauOpLighting: 5,
+    // BauOpHvac: 50,
+    // BauOpLighting: 5,
+    // BauOpEquTen: 0,
+    // BauOpOthers: 25,
+
+    // BauOpRenewables: 0,
+
+    // BauCreatedByEmail: "Enrico.Zara@arup.com",
+    // BauYear: 2020,
+    // BauBuildingType: "High Rise",
+    // BauSector: "Office",
+    // BauLocation: "Sydney, Australia",
+    // BauGFA: 30000,
+
+    // non hardcoded values
+
+    BauLifecycle: 0,
+
+    BauEmbSupStructure: 0,
+    BauEmbSubStructure: 0,
+    BauEmbServices: 0,
+    BauEmbEnvelope: 0,
+    BauEmbIntFinishes: 0,
+    BauEmbInOp: 0,
+    BauEmbEoL: 0,
+
+    BauOpHvac: 0,
+    BauOpLighting: 0,
     BauOpEquTen: 0,
-    BauOpOthers: 25,
+    BauOpOthers: 0,
 
     BauOpRenewables: 0,
 
-    BauCreatedByEmail: "Enrico.Zara@arup.com",
-    BauYear: 2020,
-    BauBuildingType: "High Rise",
-    BauSector: "Office",
-    BauLocation: "Sydney, Australia",
-    BauGFA: 30000,
+    BauCreatedByEmail: "",
+    BauYear: 0,
+    BauBuildingType: "",
+    BauSector: "",
+    BauLocation: "",
+    BauGFA: 0,
 
     // carbon summary
     SummaryEnergyDemandInOperation: 0,
@@ -122,33 +159,6 @@ const initialState = {
     SummaryOffsets: 0,
     SummaryGapToZero: 0,
 
-    // BauLifecycle: 0,
-
-    // BauEmbSupStructure: 0,
-    // BauEmbSubStructure: 0,
-    // BauEmbServices: 0,
-    // BauEmbEnvelope: 0,
-    // BauEmbIntFinishes: 0,
-    // BauEmbInOp: 0,
-    // BauEmbEoL: 0,
-
-    // BauOpHvac: 0,
-    // BauOpLighting: 0,
-    // BauOpEquTen: 0,
-    // BauOpOthers: 0,
-
-    // BauOpRenewables: 0,
-
-    // BauCreatedByEmail: "",
-    // BauYear: 0,
-    // BauBuildingType: "",
-    // BauSector: "",
-    // BauLocation: "",
-    // BauGFA: 0,
-
-
-
-    // KPI inputs
 
 }
 
