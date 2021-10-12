@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { Menu } from 'antd';
+import { Menu, notification  } from 'antd';
 import { HomeOutlined, MailOutlined, DotChartOutlined, SettingOutlined, EditOutlined, SaveOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom"
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
+
 
 const centerStyle = {
   position: 'relative',
@@ -12,7 +13,17 @@ const centerStyle = {
 };
 
 
-
+const openNotification = () => {
+  notification.open({
+    message: 'Project Saved!',
+    description:
+      'Your updates have been saved. Feel free to continue to make updates. If you\'re finished, you can close this browser tab.',
+    onClick: () => {
+      console.log('Notification Clicked!');
+    },
+    duration: 10,
+  });
+};
 
 const MainMenu = (props) => {
 // class MainMenu extends React.Component {
@@ -32,6 +43,9 @@ const urlComplete = url + '/projects?code=' + token;
   const saveButtonStyle = {
     color: 'white',
     backgroundColor: '#4BA046'
+  }
+
+  const saveButtonStyleDisabled = {
   }
 
   
@@ -69,6 +83,7 @@ const urlComplete = url + '/projects?code=' + token;
     axios.patch(urlComplete, JSON.stringify(body), axiosConfig).then(result => {
       console.log(result)
   })
+  openNotification();
   }  
 
   const handleClick = e => {
@@ -81,13 +96,14 @@ const urlComplete = url + '/projects?code=' + token;
     return (
       <Menu style={centerStyle} theme="light" onClick={handleClick} selectedKeys={current} mode="horizontal">
         
+        
         <Menu.Item key="home" icon={<HomeOutlined />}>
           
         <Link to="/">
           Home 
           </Link>
         </Menu.Item> 
-        <Menu.Item key="KPIinput" icon={<EditOutlined />}>
+        <Menu.Item disabled={JobNumber==""} key="KPIinput" icon={<EditOutlined />}>
           
         <Link to="/KPIinput">
           KPIs
@@ -110,7 +126,7 @@ const urlComplete = url + '/projects?code=' + token;
           Admin
           </Link>
         </Menu.Item>
-        <Menu.Item style={saveButtonStyle} onClick={save} key="save" icon={<SaveOutlined />}>
+        <Menu.Item disabled={JobNumber==""} style={JobNumber=="" ? saveButtonStyleDisabled : saveButtonStyle} onClick={save} key="save" icon={<SaveOutlined />}>
         
           <strong>Save</strong>
         
