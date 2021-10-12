@@ -68,15 +68,15 @@ const ProjectForm = () => {
           </Col>
         </Row>
 
-        <Row >
+        {/* <Row >
           <Col span={18}>
             <Space style={{ width: '100%', justifyContent: 'left' }}>
               <Text>
                 Who is the sustainability champion for the project
               </Text>
-              {/* <Tooltip title="If not known, type 50">
+              <Tooltip title="If not known, type 50">
               <QuestionCircleOutlined />
-            </Tooltip> */}
+            </Tooltip>
             </Space>
           </Col>
           <Col span={6}>
@@ -84,7 +84,7 @@ const ProjectForm = () => {
             <Input size="small" placeholder="Project A"  value={SustainabilityChampionEmail} id='SustainabilityChampionEmail' onChange={handleStringChange} />
             </Text>
           </Col>
-        </Row>
+        </Row> */}
 
         <Row >
           <Col span={18}>
