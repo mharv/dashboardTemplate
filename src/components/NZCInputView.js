@@ -3,16 +3,16 @@ import { Row, Col, Divider, Space } from 'antd';
 import DemoWaterfall from './waterfall';
 import EmbodiedCarbonPie from './EmbodiedCarbonPie';
 import EnergyCarbonPie from './EnergyCarbonPie';
-import InputTabs from './tabs';
+import NZCTabs from './NZCTabs';
 import TotalsTable from './TotalsTable';
 
 
-const InputView = () => (
+const NZCInputView = () => (
     <>
 
     <Row>
       <Col span={8}>
-      <InputTabs></InputTabs>
+      <NZCTabs></NZCTabs>
       </Col>
       <Col offset={1} span={15}>
         <DemoWaterfall></DemoWaterfall>
@@ -33,4 +33,4 @@ const InputView = () => (
     </>
   );
   
-  export default InputView;
+  export default NZCInputView;

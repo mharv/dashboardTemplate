@@ -7,7 +7,7 @@ import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-class InputTabs extends React.Component {
+class NZCTabs extends React.Component {
 
   render() {
     return (
@@ -31,4 +31,4 @@ class InputTabs extends React.Component {
   }
 }
 
-export default InputTabs;
+export default NZCTabs;
