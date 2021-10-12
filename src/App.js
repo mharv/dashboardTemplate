@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Button, Layout } from 'antd';
 import './App.css';
-import InputView from './components/InputView';
+import NZCInputView from './components/NZCInputView';
+import KPIInputView from './components/KPIInputView';
 import HomeView from './components/HomeView';
 import MainMenu from './components/menu';
 import {
@@ -19,16 +20,17 @@ const App = () => {
   
   const dispatch = useDispatch();
   dispatch({type: 'recalculate' })
+  console.log(process.env.REACT_APP_SECRET_NAME)
   
   const isAuthenticated = useIsAuthenticated();
 
   return (
     <div className="App">
       <Router>
-        <Layout>
+        <Layout style={{height:"100vh"}}>
           <Header theme={"light"} style={{ position: 'fixed', zIndex: 1, width: '100%', background: '#fff' }}>
             <AuthenticatedTemplate>
-              <MainMenu></MainMenu>
+              <MainMenu token={process.env.BACKEND_TOKEN}></MainMenu>
             </AuthenticatedTemplate>
           </Header>
           <Content style={{ padding: '0 50px', marginTop: 80 }}>
@@ -38,16 +40,16 @@ const App = () => {
               </Route>
               
               <Route path="/NZCinput">
-                <InputView></InputView>
+                <NZCInputView></NZCInputView>
               </Route>
               <Route path="/KPIinput">
-              <div>Compare page</div>
+              <KPIInputView></KPIInputView>
               </Route>
               <Route path="/compare">
                 <div>Compare page</div>
               </Route>
               <Route path="/">
-                <HomeView></HomeView>
+                <HomeView token={process.env.BACKEND_TOKEN}></HomeView>
               </Route>
             </Switch>
           </Content>
